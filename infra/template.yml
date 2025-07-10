@@ -57,7 +57,7 @@ Resources:
   SESConfigSet:
     Type: AWS::SES::ConfigurationSet
     Properties:
-      Name: !Sub "${DomainName}-send-logs"
+      Name: "send-logs"
 
   SESConfigSetEventDestination:
     Type: AWS::SES::ConfigurationSetEventDestination
