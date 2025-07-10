@@ -32,6 +32,6 @@ jobs:
           STACK_NAME=openbrighton-main-ses
           aws cloudformation deploy \
             --stack-name $STACK_NAME \
-            --template-file ./infra/ses.yml \
+            --template-file ./infra/template.yml \
             --no-fail-on-empty-changeset \
             --region ${{ secrets.AWS_REGION }}
