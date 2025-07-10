@@ -36,6 +36,17 @@ jobs:
             --no-fail-on-empty-changeset \
             --region ${{ secrets.AWS_REGION }}
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build SES Email Templates
+        run: npm run build:templates
+
       - name: Sync SES Email Templates
         run: |
           for template in templates/*.json; do

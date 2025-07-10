@@ -1,0 +1,12 @@
+{
+  "name": "notification-service-email-builder",
+  "version": "1.0.0",
+  "description": "Build SES email templates from Handlebars sources.",
+  "main": "build-templates.js",
+  "scripts": {
+    "build:templates": "node build-templates.js"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8"
+  }
+} 

@@ -1,8 +1,0 @@
-{
-  "Template": {
-    "TemplateName": "WelcomeEmail",
-    "SubjectPart": "Welcome to OpenBrighton!",
-    "TextPart": "Hello {{name}},\n\nWelcome to OpenBrighton! We're glad to have you on board.",
-    "HtmlPart": "<html><body><h1>Hello {{name}},</h1><p>Welcome to <b>OpenBrighton</b>! We're glad to have you on board.</p></body></html>"
-  }
-} 
