@@ -47,3 +47,33 @@ Resources:
       TTL: 1800
       ResourceRecords:
         - !GetAtt SESEmailDomainIdentity.DkimDNSTokenValue3
+
+  SESLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/ses/${DomainName}/send"
+      RetentionInDays: 30
+
+  SESConfigSet:
+    Type: AWS::SES::ConfigurationSet
+    Properties:
+      Name: !Sub "${DomainName}-send-logs"
+
+  SESConfigSetEventDestination:
+    Type: AWS::SES::ConfigurationSetEventDestination
+    Properties:
+      ConfigurationSetName: !Ref SESConfigSet
+      EventDestination:
+        Name: "CloudWatchSendLogs"
+        Enabled: true
+        MatchingEventTypes:
+          - send
+          - reject
+          - bounce
+          - complaint
+          - delivery
+        CloudWatchDestination:
+          DimensionConfigurations:
+            - DimensionName: "SESMessageId"
+              DimensionValueSource: "messageTag"
+              DefaultDimensionValue: "default"
