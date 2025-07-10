@@ -1,0 +1,49 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: SES Domain Identity with DNS verification and DKIM signing.
+
+Parameters:
+  DomainName:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /openbrighton/main/domain
+    Description: The domain name to verify (e.g., example.com)
+
+  HostedZoneId:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /openbrighton/main/hosted-zone/id
+    Description: The ID of the Route 53 hosted zone
+
+Resources:
+  SESEmailDomainIdentity:
+    Type: AWS::SES::EmailIdentity
+    Properties:
+      EmailIdentity: !Ref DomainName
+
+  DKIMRecord1:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !GetAtt SESEmailDomainIdentity.DkimDNSTokenName1
+      Type: CNAME
+      TTL: 1800
+      ResourceRecords:
+        - !GetAtt SESEmailDomainIdentity.DkimDNSTokenValue1
+
+  DKIMRecord2:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !GetAtt SESEmailDomainIdentity.DkimDNSTokenName2
+      Type: CNAME
+      TTL: 1800
+      ResourceRecords:
+        - !GetAtt SESEmailDomainIdentity.DkimDNSTokenValue2
+
+  DKIMRecord3:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !GetAtt SESEmailDomainIdentity.DkimDNSTokenName3
+      Type: CNAME
+      TTL: 1800
+      ResourceRecords:
+        - !GetAtt SESEmailDomainIdentity.DkimDNSTokenValue3
