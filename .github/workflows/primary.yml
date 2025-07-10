@@ -35,3 +35,12 @@ jobs:
             --template-file ./infra/template.yml \
             --no-fail-on-empty-changeset \
             --region ${{ secrets.AWS_REGION }}
+
+      - name: Sync SES Email Templates
+        run: |
+          for template in templates/*.json; do
+            if [ -f "$template" ]; then
+              aws ses create-template --cli-input-json file://$template --region ${{ secrets.AWS_REGION }} || \
+              aws ses update-template --cli-input-json file://$template --region ${{ secrets.AWS_REGION }}
+            fi
+          done
