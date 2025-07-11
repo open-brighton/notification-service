@@ -49,7 +49,7 @@ jobs:
 
       - name: Sync SES Email Templates
         run: |
-          for template in templates/*.json; do
+          find templates -type f -name '*.json' | while read template; do
             if [ -f "$template" ]; then
               aws ses create-template --cli-input-json file://$template --region ${{ secrets.AWS_REGION }} || \
               aws ses update-template --cli-input-json file://$template --region ${{ secrets.AWS_REGION }}
