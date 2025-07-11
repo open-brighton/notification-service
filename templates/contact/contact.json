@@ -1,0 +1,8 @@
+{
+  "TemplateName": "contact",
+  "TemplateContent": {
+    "Subject": "Contact Form Submission",
+    "Text": "Hello {{name}} {{email}} {{message}}",
+    "Html": "<html>\n  <body>\n    <h1>Hello {{name}} {{email}},</h1>\n    <p>{{message}}</p>\n  </body>\n</html>"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "TemplateName": "generic",
+  "TemplateContent": {
+    "Subject": "Open Brighton",
+    "Text": "{{content}}",
+    "Html": "<html>\n  <body>\n    {{content}}\n  </body>\n</html>"
+  }
+}
