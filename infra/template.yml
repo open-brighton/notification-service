@@ -67,11 +67,16 @@ Resources:
         Name: "CloudWatchSendLogs"
         Enabled: true
         MatchingEventTypes:
-          - send
-          - reject
-          - bounce
-          - complaint
-          - delivery
+          - SEND
+          - REJECT
+          - BOUNCE
+          - COMPLAINT
+          - DELIVERY
+          - OPEN
+          - CLICK
+          - RENDERING_FAILURE
+          - DELIVERY_DELAY
+          - SUBSCRIPTION
         CloudWatchDestination:
           DimensionConfigurations:
             - DimensionName: "SESMessageId"
