@@ -36,11 +36,11 @@ templateFolders.forEach(folder => {
   }
 
   const json = {
-    TemplateName: folder,
-    TemplateContent: {
-      Subject: subject,
-      Text: text,
-      Html: html
+    Template: {
+      TemplateName: folder,
+      SubjectPart: subject,
+      TextPart: text,
+      HtmlPart: html
     }
   };
 
