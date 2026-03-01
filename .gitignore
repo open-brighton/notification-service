@@ -1,3 +1,6 @@
 node_modules/
 npm-debug.log*
-templates/*.json 
+templates/*.json
+
+# test coverage
+coverage/
