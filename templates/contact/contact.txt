@@ -1,1 +1,12 @@
-Hello {{name}} {{email}} {{message}}
+OpenBrighton — New Contact Form Submission
+==========================================
+
+Name:    {{name}}
+Email:   {{email}}
+
+Message:
+{{message}}
+
+--
+OpenBrighton | Brighton, MA
+https://openbrighton.org
