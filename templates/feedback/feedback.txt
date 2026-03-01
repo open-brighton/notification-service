@@ -1,0 +1,12 @@
+OpenBrighton — New Feedback Submission
+======================================
+
+Email:    {{email}}
+Category: {{category}}
+
+Message:
+{{message}}
+
+--
+OpenBrighton | Brighton, MA
+https://openbrighton.org
